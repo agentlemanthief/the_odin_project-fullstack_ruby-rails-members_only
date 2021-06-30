@@ -34,8 +34,8 @@
         </div>
 
         <% if current_user == post.user %>
-          <nav class="level">
-            <div class="level-left is-mobile">
+          <nav class="level is-mobile">
+            <div class="level-left">
               <%= link_to post, class: 'level-item' do %>
                 <span class="icon"><i class="fa fa-link" style="color:grey" aria-hidden="true"></i></span>
               <% end %>
