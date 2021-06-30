@@ -19,6 +19,12 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    if current_user == @post.user
+      @post = Post.find(params[:id])
+    else
+      flash[:alert] = 'You cannot edit other users posts!'
+      redirect_to root_path
+    end
   end
 
   # POST /posts or /posts.json
@@ -27,7 +33,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: "Post was successfully created." }
+        format.html { redirect_to root_path, notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,8 +45,8 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
     respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to @post, notice: "Post was successfully updated." }
+      if current_user == @post.user && @post.update(post_params)
+        format.html { redirect_to root_path, notice: "Post was successfully updated." }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit, status: :unprocessable_entity }
