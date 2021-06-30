@@ -4,7 +4,9 @@
       <div class="media-content">
         <p>Welcome: <%= current_user.username %></p>
         <p class="mb-2"><strong>Submit Your Post Here</strong></p>
-        <%= render 'posts/form' %>
+        <div class="media-content">
+          <%= render 'posts/form' %>
+        </div>
       </div>
     </article>
   </div>
