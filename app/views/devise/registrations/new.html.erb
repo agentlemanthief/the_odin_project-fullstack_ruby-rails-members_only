@@ -1,29 +1,31 @@
-<h2>Sign up</h2>
+<div class="box">
+  <article class="media">
+    <div class="media-content">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+      <strong class="title is-5">Sign up</strong><br><br>
 
-  <div class="form-inputs">
-    <%= f.input :name, required: true, autofocus: true, input_html: { class:"input" }, wrapper: false, label_html: { class:"label" } %>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
 
-    <%= f.input :username, required: true, input_html: { class:"input" }, wrapper: false, label_html: { class:"label" } %>
+        <div class="form-inputs">
+          <%= f.input :name, required: true, autofocus: true, input_html: { class:"input m-2" }, wrapper: false, label_html: { class:"label m-2" } %>
 
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
+          <%= f.input :username, required: true, autofocus: false, input_html: { class:"input m-2" }, wrapper: false, label_html: { class:"label m-2" } %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+          <%= f.input :email, required: true, autofocus: false, input_html: { class:"input m-2" }, wrapper: false, label_html: { class:"label m-2" } %>
 
-<%= render "devise/shared/links" %>
+          <%= f.input :password, required: true, autofocus: false, input_html: { class:"input m-2" }, wrapper: false, label_html: { class:"label m-2" } %>
+
+          <%= f.input :password_confirmation, required: true, autofocus: false, input_html: { class:"input m-2" }, wrapper: false, label_html: { class:"label m-2" } %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up", class: 'button has-background-grey-light m-2' %>
+        </div>
+      <% end %>
+      <div class="button m-2">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </article>
+</div>
