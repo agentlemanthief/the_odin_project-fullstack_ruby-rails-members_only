@@ -1,5 +1,6 @@
 # The Odin Project's Full Stack Ruby Project: Members Only!
 
+
 ## Project: Members Only!
 
 
@@ -43,3 +44,7 @@ Let’s build those secrets! We’ll need to make sure only signed in users can 
 8. Sign in and create a few secret posts.
 
 9. Test it out – sign out and go to the index page. You should see a list of the posts but no author names. Sign in and the author names should appear. Your secrets are safe!
+
+### Link
+
+https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails/lessons/authentication
